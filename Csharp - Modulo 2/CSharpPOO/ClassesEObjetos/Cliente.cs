@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ClassesEObjetos
 {
-    internal class Cliente
+    public class Cliente
     {
+        public string primeiro_nome;
+        public string sobrenome;
+        public string cpf;
+        public string profissao;
+
     }
 }
