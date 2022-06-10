@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByteBank_modulo3.Sistemas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace ByteBank_modulo3.Funcionarios
 {
-    public class GerenteDeConta : Funcionario
+    public class GerenteDeConta : FuncionarioAutenticavel
     {
+        private string _senha;
         public GerenteDeConta(string cpf) : base(4000, cpf)
         {
 
@@ -22,6 +24,7 @@ namespace ByteBank_modulo3.Funcionarios
         {
             Salario *= 1.05;
         }
+
     }
     
 }

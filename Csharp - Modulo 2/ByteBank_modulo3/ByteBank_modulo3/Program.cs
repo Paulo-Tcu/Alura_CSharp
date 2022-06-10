@@ -1,4 +1,5 @@
 ﻿using ByteBank_modulo3.Funcionarios;
+using ByteBank_modulo3.Sistemas;
 
 namespace ByteBank_modulo3
 {
@@ -41,37 +42,31 @@ namespace ByteBank_modulo3
 
             //-----------------------------------------------------------------------------------------------------------------------------------
 
-            CalcularBonificacao();
-            Console.WriteLine($"E aqui o total de bonificação no atributo statico de Funcionário: R${Funcionario.TotalDeBonificacao}\n" +
-                $"Com uma média de R${Funcionario.TotalDeBonificacao / Funcionario.TotalFuncionarios} por funcionário(s)\n" +
-                $"Total de Funcionários: {Funcionario.TotalFuncionarios}");
+            //Console.WriteLine($"E aqui o total de bonificação no atributo statico de Funcionário: R${Funcionario.TotalDeBonificacao}\n" +
+            //    $"Com uma média de R${Funcionario.TotalDeBonificacao / Funcionario.TotalFuncionarios} por funcionário(s)\n" +
+            //    $"Total de Funcionários: {Funcionario.TotalFuncionarios}");
 
-            Funcionario paulo = new Desenvolvedor("123.456.789");
+            //Funcionario paulo = new Desenvolvedor("123.456.789");
+
+            AutenticarUsuario();
 
         }
 
-        public static void CalcularBonificacao()
+        public static void AutenticarUsuario()
         {
-            GerenciadorBonificacao gerenciadorBonificacao = new GerenciadorBonificacao();
-
-            Designer pedro = new Designer("833.222.048-39");
-            pedro.Nome = "Pedro";
 
             Diretor roberta = new Diretor("159.753.398-04");
             roberta.Nome = "Roberta";
+            roberta.Senha = "123";
 
-            Auxiliar igor = new Auxiliar("981.198.778-53");
-            igor.Nome = "Igor";
+            SistemaInterno.Logar(roberta,roberta.Senha);
+            SistemaInterno.Logar(roberta,"1234");
 
-            GerenteDeConta camila = new GerenteDeConta("326.985.628-89");
-            camila.Nome = "Camila";
+            ParceiroComercial parceiro = new ParceiroComercial();
+            parceiro.Nome = "Novo parceiro comercial";
+            parceiro.Senha = "abcd";
 
-            gerenciadorBonificacao.Registrar(pedro);
-            gerenciadorBonificacao.Registrar(roberta);
-            gerenciadorBonificacao.Registrar(igor);
-            gerenciadorBonificacao.Registrar(camila);
-
-            Console.WriteLine($"Total de bonificações do mês: R${gerenciadorBonificacao.GetTotalBonificacao()}");
+            SistemaInterno.Logar(parceiro, parceiro.Senha);
         }
     }
 }

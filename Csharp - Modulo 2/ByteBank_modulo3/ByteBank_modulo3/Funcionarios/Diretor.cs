@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByteBank_modulo3.Sistemas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace ByteBank_modulo3.Funcionarios
 {
-    public class Diretor : Funcionario
+    public class Diretor : FuncionarioAutenticavel
     {
+
+        private string _senha;
         public Diretor(string cpf) : base(5000.00,cpf)
         {
  
