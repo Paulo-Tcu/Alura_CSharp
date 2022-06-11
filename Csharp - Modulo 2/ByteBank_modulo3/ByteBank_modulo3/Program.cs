@@ -48,7 +48,7 @@ namespace ByteBank_modulo3
 
             //Funcionario paulo = new Desenvolvedor("123.456.789");
 
-            AutenticarUsuario();
+            //AutenticarUsuario();
 
         }
 
