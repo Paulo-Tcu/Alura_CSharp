@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ByteBank_modulo3.Clientes
+namespace ByteBank_modulo5.Clientes
 {
     public class Cliente
     {

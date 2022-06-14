@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ByteBank_modulo3.Funcionarios
+namespace ByteBank_modulo5.Funcionarios
 {
     public abstract class Funcionario
     {

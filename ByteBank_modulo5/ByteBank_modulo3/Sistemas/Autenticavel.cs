@@ -1,11 +1,11 @@
-﻿using ByteBank_modulo3.Funcionarios;
+﻿using ByteBank_modulo5.Funcionarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ByteBank_modulo3.Sistemas
+namespace ByteBank_modulo5.Sistemas
 { 
     public interface Autenticavel
     {
