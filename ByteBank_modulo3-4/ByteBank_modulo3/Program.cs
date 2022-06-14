@@ -1,4 +1,5 @@
-﻿using ByteBank_modulo3.Funcionarios;
+﻿using ByteBank_modulo3.Clientes;
+using ByteBank_modulo3.Funcionarios;
 using ByteBank_modulo3.Sistemas;
 
 namespace ByteBank_modulo3
@@ -50,6 +51,55 @@ namespace ByteBank_modulo3
 
             //AutenticarUsuario();
 
+            //-----------------------------------------------------------------------------------------------
+            // Controle de exceções e innerException
+            //try
+            //{
+            //    Cliente paulo = new Cliente();
+            //    paulo.primeiro_nome = "Paulo";
+            //    ContaCorrente conta1 = new ContaCorrente(paulo,1010,"a",1000.00);
+            //    Console.WriteLine($"Conta corrente de {conta1.Titular.primeiro_nome} criada com sucesso!!!");
+
+            //    conta1.Sacar(250);
+            //    conta1.Transferir(3000, conta1);
+            //}
+            //catch (Exception erro)
+            //{
+            //    Console.WriteLine(erro.Message
+            //}
+            //----------------------------------------------------------------------------------------------------------------
+            try
+            {
+                /*No metodo Using é preciso adotar uma Interface disposeble que executa o leitor caso o obj não seja nulo
+                 chamando posteriomente o disposeble que seria o fechar (liberar) arquivo independente se foi lançado uma exceção ou não*/
+                using (LeitorDeArquivo leitor = new LeitorDeArquivo("teste.txt"))
+                {
+                    leitor.LerProximaLinha();
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("CATCH NO METODO MAIN");
+            }
+
+            //------------------------------------------
+            //LeitorDeArquivo leitor = null;
+            //try
+            //{
+            //        leitor = new LeitorDeArquivo("contas1.txt");
+
+            //        leitor.LerProximaLinha();
+            //        leitor.LerProximaLinha();
+            //        leitor.LerProximaLinha();
+            //}
+            //finally
+            //{
+            //        Console.WriteLine("Executando o finally");
+            //        if(leitor != null)
+            //        {
+            //leitor.Fechar();
+            //        }
+            //}
         }
 
         public static void AutenticarUsuario()
