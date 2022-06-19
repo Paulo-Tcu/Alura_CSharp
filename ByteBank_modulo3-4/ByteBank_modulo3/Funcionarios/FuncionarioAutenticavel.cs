@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ByteBank_modulo3.Funcionarios
 {
-    public abstract class FuncionarioAutenticavel : Funcionario, Autenticavel
+    public abstract class FuncionarioAutenticavel : Funcionario, IAutenticavel
     {
         private string _senha;
         public FuncionarioAutenticavel(double salario, string cpf) : base (salario, cpf)
@@ -45,7 +45,7 @@ namespace ByteBank_modulo3.Funcionarios
 
         }
 
-        object Autenticavel.Nome
+        object IAutenticavel.Nome
         {
             get { return Nome; }
         }

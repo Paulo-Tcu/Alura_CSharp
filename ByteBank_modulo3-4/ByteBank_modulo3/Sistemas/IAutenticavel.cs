@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ByteBank_modulo3.Sistemas
 { 
-    public interface Autenticavel
+    public interface IAutenticavel
     {
         object Nome { get; }
 

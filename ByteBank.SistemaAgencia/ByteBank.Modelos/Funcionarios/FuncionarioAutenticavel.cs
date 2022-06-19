@@ -1,17 +1,32 @@
-﻿using ByteBank_modulo3.Sistemas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ByteBank_modulo3.Funcionarios
+namespace ByteBank.Modelos.Funcionarios
 {
-    public class ParceiroComercial : IAutenticavel
+    public abstract class FuncionarioAutenticavel : Funcionario, IAutenticavel
     {
         private string _senha;
-        public string Nome { get; set; }
-               public string Senha
+        public FuncionarioAutenticavel(double salario, string cpf) : base(salario, cpf)
+        {
+
+        }
+
+        //public void SetSenha(string novaSenha)
+        //{
+        //    if (novaSenha.Length > 0)
+        //    {
+        //        _senha = novaSenha;
+        //    }
+        //    else
+        //    {
+        //        throw new Exception("Senha inválida");
+        //    }
+        //}
+
+        public string Senha
         {
             get { return _senha; }
             set
@@ -37,7 +52,8 @@ namespace ByteBank_modulo3.Funcionarios
         public bool Autenticar(string senha)
         {
 
-            return _senha == senha;
+            return AutenticadorHelper.CompararSenhas(_senha, senha);
         }
+
     }
 }

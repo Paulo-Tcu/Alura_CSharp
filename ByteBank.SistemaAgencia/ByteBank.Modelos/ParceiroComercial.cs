@@ -1,17 +1,16 @@
-﻿using ByteBank_modulo3.Sistemas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ByteBank_modulo3.Funcionarios
+namespace ByteBank.Modelos
 {
     public class ParceiroComercial : IAutenticavel
     {
         private string _senha;
         public string Nome { get; set; }
-               public string Senha
+        public string Senha
         {
             get { return _senha; }
             set
@@ -37,7 +36,7 @@ namespace ByteBank_modulo3.Funcionarios
         public bool Autenticar(string senha)
         {
 
-            return _senha == senha;
+            return AutenticadorHelper.CompararSenhas(Senha, senha);
         }
     }
 }
