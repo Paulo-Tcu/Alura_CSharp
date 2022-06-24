@@ -19,14 +19,19 @@ namespace UtilizandoString_modulo5
                 throw new Exception(nameof(url));
             }
 
-            int indiceInterrogacao = url.IndexOf("?");
-            _argumentos = url.Substring(indiceInterrogacao+1);
+            url = url.ToLower();
+            _argumentos = url.Substring(url.IndexOf("?") + 1);
             Url = url;
         }
         public string GetValor(string valor)
         {
            valor += "=";
-            return _argumentos.Substring(_argumentos.IndexOf(valor) + valor.Length);
+            string resultado = _argumentos.Substring(_argumentos.IndexOf(valor) + valor.Length);
+            if(resultado.IndexOf("?") != -1)
+            {
+                return resultado.Remove(resultado.IndexOf("?"));
+            }
+            return resultado;
         }
         
     }

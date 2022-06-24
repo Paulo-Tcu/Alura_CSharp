@@ -12,5 +12,17 @@ namespace ByteBank.Modelos.Clientes
         public string sobrenome;
         public string cpf;
         public string profissao;
+
+        public override bool Equals(object obj)
+        {
+            Cliente outroCliente = obj as Cliente;
+
+           if (outroCliente == null)
+            {
+                return false;
+            }
+
+            return cpf == outroCliente.cpf;
+        }
     }
 }
