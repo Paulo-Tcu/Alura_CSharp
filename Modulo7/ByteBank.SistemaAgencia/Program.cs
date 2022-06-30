@@ -61,18 +61,24 @@ namespace ByteBank.SistemaAgencia
             lista.Adicionar(new ContaCorrente(10,20));
             lista.Adicionar(new ContaCorrente(10,20));
             lista.Adicionar(new ContaCorrente(10,20));
-            lista.Adicionar(new ContaCorrente(10,20));
-            lista.Adicionar(new ContaCorrente(10,20));
-            lista.Adicionar(new ContaCorrente(10,20));
-            lista.Adicionar(new ContaCorrente(10,20));
-            lista.Adicionar(new ContaCorrente(10,20));
-            lista.Adicionar(new ContaCorrente(10,20));
-            lista.Adicionar(new ContaCorrente(10,20));
+            //lista.Adicionar(new ContaCorrente(10,20));
+            //lista.Adicionar(new ContaCorrente(10,20));
+            //lista.Adicionar(new ContaCorrente(10,20));
+            //lista.Adicionar(new ContaCorrente(10,20));
+            //lista.Adicionar(new ContaCorrente(10,20));
+            //lista.Adicionar(new ContaCorrente(10,20));
+            //lista.Adicionar(new ContaCorrente(10,20));
 
-            lista.EscreverListaNaTela();
-            Console.WriteLine("Depois de remover um item do array");
-            lista.Remover(contaPaulo);
-            lista.EscreverListaNaTela();
+            //lista.GetPrintFullLista();
+            //Console.WriteLine("Depois de remover um item do array");
+            //lista.Remover(contaPaulo);
+            //lista.GetPrintFullLista();
+            Console.WriteLine($"O número da conta é {lista[0].Numero} e agência é {lista[0].Agencia}");
+            lista.Adicionar(new ContaCorrente(10, 1), new ContaCorrente(10, 2), new ContaCorrente(10, 3));
+
+            lista.GetPrintFullLista();
+
+
             Console.ReadLine();
         }
     }
