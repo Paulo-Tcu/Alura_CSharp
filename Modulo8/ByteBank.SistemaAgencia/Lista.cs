@@ -46,20 +46,30 @@ namespace ByteBank.SistemaAgencia
             }
             Console.WriteLine("Adicionado com sucesso");
         }
-        public void Remover(T item)
+        public void RemoverItem(T item)
         {
             int indiceItem = -1;
 
             for (int i = 0; i < _proximaPosicao; i++)
             {
-
+                //For para comparar valor inserido e retornar o indice dentro do array
                 if (_itens[i].Equals(item))
                 {
                     indiceItem = i;
                     break;
                 }
             }
+            //For para reordenar array
             for (int i = indiceItem; i < _proximaPosicao - 1; i++)
+            {
+                _itens[i] = _itens[i + 1];
+            }
+
+            _proximaPosicao--;
+        }
+        public void RemoverComIndice(int indice)
+        {
+            for (int i = indice; i < _proximaPosicao - 1; i++)
             {
                 _itens[i] = _itens[i + 1];
             }
