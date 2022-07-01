@@ -1,35 +1,35 @@
-﻿using ByteBank.Modelos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ByteBank.SistemaAgencia
+namespace ByteBank.Modelos
 {
-    public class ListaContaCorrente
+    public class Lista<T>
     {
-        private ContaCorrente[] _itens;
+
+        private T[] _itens;
         private int _proximaPosicao;
 
-        public ListaContaCorrente(int capacidadeInicial = 5)
+        public Lista(int capacidadeInicial = 5)
         {
-            _itens = new ContaCorrente[capacidadeInicial];
+            _itens = new T[capacidadeInicial];
             _proximaPosicao = 0;
         }
 
-        public void Adicionar(params ContaCorrente[] conta)
+        public void Adicionar(params T[] conta)
         {
             //If para validar se há necessidade de aumentar o tamanho do Array ou somente add um próximo valor
-            if (_proximaPosicao > _itens.Length-1)
+            if (_proximaPosicao > _itens.Length - 1)
             {
-                Console.WriteLine($"Aumentando array com tamanho {_itens.Length} para {_itens.Length*2}");
-                ContaCorrente[] novoArray = new ContaCorrente[_itens.Length * 2];
+                Console.WriteLine($"Aumentando array com tamanho {_itens.Length} para {_itens.Length * 2}");
+                T[] novoArray = new T[_itens.Length * 2];
 
-                Array.Copy(_itens,novoArray,_itens.Length);
+                Array.Copy(_itens, novoArray, _itens.Length);
                 _itens = novoArray;
 
-                foreach (ContaCorrente contaCorrente in conta)
+                foreach (T contaCorrente in conta)
                 {
                     _itens[_proximaPosicao] = contaCorrente;
                     Console.WriteLine($"Adicionado nova Conta Corrente na posição {_proximaPosicao} com numero da conta {_itens[_proximaPosicao].Numero}");
@@ -41,7 +41,7 @@ namespace ByteBank.SistemaAgencia
             }
             else
             {
-                foreach (ContaCorrente contaCorrente in conta)
+                foreach (T contaCorrente in conta)
                 {
                     _itens[_proximaPosicao] = contaCorrente;
                     Console.WriteLine($"Adicionado nova Conta Corrente na posição {_proximaPosicao} com numero da conta {_itens[_proximaPosicao].Numero}");
@@ -52,7 +52,7 @@ namespace ByteBank.SistemaAgencia
                 //_proximaPosicao++;
             }
         }
-        public void Remover(ContaCorrente item)
+        public void Remover(T item)
         {
             int indiceItem = -1;
 
@@ -65,9 +65,9 @@ namespace ByteBank.SistemaAgencia
                     break;
                 }
             }
-            for (int i = indiceItem; i < _proximaPosicao-1; i++)
+            for (int i = indiceItem; i < _proximaPosicao - 1; i++)
             {
-                _itens[i] = _itens[i+1];
+                _itens[i] = _itens[i + 1];
             }
 
             _proximaPosicao--;
@@ -76,25 +76,31 @@ namespace ByteBank.SistemaAgencia
 
         public void GetPrintFullLista()
         {
-            for (int i = 0; i < _proximaPosicao; i++)
+            //for (int i = 0; i < _proximaPosicao; i++)
+            //{
+            //    ContaCorrente conta = _itens[i];
+            //    Console.WriteLine($"Conta no índice {i}: numero {conta.Agencia} {conta.Numero}");
+            //}
+            int indice = 0;
+            foreach (T conta in _itens)
             {
-                ContaCorrente conta = _itens[i];
-                Console.WriteLine($"Conta no índice {i}: numero agência: {conta.Agencia}, conta: {conta.Numero}");
+                Console.WriteLine($"Conta no índice {indice}: numero da agência: {conta.Agencia} e conta: {conta.Numero}");
+                indice++;
             }
         }
 
-        private Object GetItemIndice(int indice)
+        private T GetItemIndice(int indice)
         {
-            if(indice < 0 || indice >= _proximaPosicao)
+            if (indice < 0 || indice >= _proximaPosicao)
             {
-                return "Valor inválido";
+                return null;
             }
             return _itens[indice];
         }
 
-        public ContaCorrente this[int indice]
+        public T this[int indice]
         {
-            get { return GetItemIndice(indice) as ContaCorrente; }
+            get { return GetItemIndice(indice) as T; }
         }
     }
 }

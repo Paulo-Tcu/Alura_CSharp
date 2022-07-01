@@ -53,7 +53,7 @@ namespace ByteBank.SistemaAgencia
             //}
             //Console.ReadLine();
 
-            ListaContaCorrente lista = new ListaContaCorrente();
+            Lista<ContaCorrente> lista = new Lista<ContaCorrente>();
 
             ContaCorrente contaPaulo = new ContaCorrente(1000, 2000);
             lista.Adicionar(contaPaulo);
@@ -76,9 +76,15 @@ namespace ByteBank.SistemaAgencia
             Console.WriteLine($"O número da conta é {lista[0].Numero} e agência é {lista[0].Agencia}");
             lista.Adicionar(new ContaCorrente(10, 1), new ContaCorrente(10, 2), new ContaCorrente(10, 3));
 
-            lista.GetPrintFullLista();
+            for(int i=0; i < lista.ProximoIndice; i++)
+            {
+                Console.WriteLine($"No indice {i} o numero da agência é: {lista[i].Agencia}, já o numero de conta é: {lista[i].Numero}");
+                if (lista[i] == null) break;
+            }
 
-
+            Lista<int> idades = new Lista<int>();
+            idades.Adicionar(10, 20, 30,40,50,60);
+            //idades.GetPrintFullLista();
             Console.ReadLine();
         }
     }
