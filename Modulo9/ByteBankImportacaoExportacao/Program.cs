@@ -30,14 +30,18 @@ namespace ByteBankImportacaoExportacao
             
 
             
-            Console.ReadLine();
         }
         static void EscreverBuffer(byte[] buffer)
         {
-            foreach (byte b in buffer)
-            {
-                Console.Write($"{b} ");
-            }
+            //var utf8 = Encoding.UTF8;
+            var utf8 = Encoding.Default; // o default pega o mesmo tipo do SO e utiliza para decodificação
+            var texto = utf8.GetString(buffer);
+            Console.Write(texto);
+
+            //foreach (byte b in buffer)
+            //{
+            //    Console.Write($"{b} ");
+            //}
         }
     }
 } 
