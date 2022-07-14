@@ -26,6 +26,13 @@ namespace ByteBank.SistemaAgencia
             {
                 Console.WriteLine(idades[i]);
             }
+            idades.RemoveAt(1);
+            Console.WriteLine();
+            for (int i = 0; i < idades.Count; i++)
+            {
+                Console.WriteLine(idades[i]);
+            }
+            Console.ReadLine();
         }
     }
 }
