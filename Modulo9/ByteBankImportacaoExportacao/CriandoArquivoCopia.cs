@@ -12,8 +12,8 @@ namespace ByteBankImportacaoExportacao
     {
         static void CriandoCopiaArquivo()
         {
-            var arquivoOriginal = new FileStream("c:/users/pcara/desktop/teste.txt", FileMode.Open);
-            var arquivoNovo = new FileStream("c:/users/pcara/desktop/teste_copia.txt", FileMode.Create);
+            var arquivoOriginal = new FileStream("C:\\Users\\paulo.cruz\\Desktop\\teste.txt", FileMode.Open);
+            var arquivoNovo = new FileStream("C:\\Users\\paulo.cruz\\Desktop\\teste_copia.txt", FileMode.Create);
             var buffer = new byte[1024];
 
             using (arquivoOriginal)
@@ -25,7 +25,7 @@ namespace ByteBankImportacaoExportacao
                     bytesLidos = arquivoOriginal.Read(buffer, 0, 1024);
                     arquivoNovo.Write(buffer, 0, bytesLidos);
                 }
-                var rodape = Encoding.UTF8.GetBytes("\n\nEste documento é uma cópia do original");
+                var rodape = Encoding.UTF8.GetBytes("\n\nEste documento é uma cópia do original");//GetBytes converte num array de Bytes, já GetString converte Bytes em string
                 arquivoNovo.Write(rodape, 0, rodape.Length);
             }
         }
