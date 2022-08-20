@@ -12,7 +12,6 @@ namespace ByteBankImportacaoExportacao.Modelos
         public int Agencia { get; }
         public double Saldo { get; private set; }
         public Cliente Titular { get; set; }
-
         public ContaCorrente(int agencia, int numero)
         {
             Agencia = agencia;
